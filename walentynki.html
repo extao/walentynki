@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki Karolina</title>
+    <style>
+        /* Ogólne style */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f7, #f5c6cb); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes-light.png'); 
+            opacity: 0.1; 
+            z-index: 1;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 25px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            z-index: 2; 
+        }
+
+        h1 {
+            color: #333; 
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .yes-button, .no-button {
+            font-size: 18px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            width: 45%;
+        }
+
+        
+        .yes-button {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .yes-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px); 
+        }
+
+        .yes-button {
+            width: 275px;
+            height: 50px;
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .no-button {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .no-button:hover {
+            background-color: #c82333;
+            transform: translateY(-3px); 
+        }
+
+        .no-button {
+            width: 275px;  
+            height: 50px;  
+            font-size: 18px;
+            position: absolute;
+            left: 58%; 
+            transform: translateX(-50%); 
+        }
+
+      
+        .gif_container {
+            margin-top: 30px;
+        }
+
+        .gif_container img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Karolino, czy zostaniesz moją walentynką?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">TAK</button>
+            <button class="no-button" onclick="handleNoClick()">NIE</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media.tenor.com/MoU_hvb9dC4AAAAM/pusheen-stormyhug.gif" alt="Pusheen gif">
+        </div>
+    </div>
+
+    <script>
+        function handleYesClick() {
+            alert("latwooo, do zobaczonka 14 lutego kocham cie!!💗💗💗 (you're getting touched)");
+        }
+
+        function handleNoClick() {
+           
+        }
+
+        document.body.addEventListener("mousemove", (e) => {
+            let noButton = document.querySelector(".no-button");
+
+            let buttonRect = noButton.getBoundingClientRect(); 
+
+            let mouseX = e.clientX; 
+            let mouseY = e.clientY; 
+
+            
+            let distanceX = Math.abs(mouseX - (buttonRect.left + buttonRect.width / 2));
+            let distanceY = Math.abs(mouseY - (buttonRect.top + buttonRect.height / 2));
+
+            
+            if (distanceX < 40 && distanceY < 40) { // 
+                let randomX = Math.random() * (window.innerWidth - buttonRect.width);
+                let randomY = Math.random() * (window.innerHeight - buttonRect.height);
+
+                
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            }
+        });
+    </script>
+
+</body>
+</html>
